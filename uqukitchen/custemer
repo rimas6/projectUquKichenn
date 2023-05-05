@@ -1,0 +1,74 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package uqu.kitchen;
+
+import java.util.Objects;
+
+/**
+ *
+ * @author HOME
+ */
+
+   
+
+public class CustomerInformation {
+//
+    private String name;
+    private String phonenumber;
+    
+    
+//constructor whithout paramerer
+    public CustomerInformation() {
+        name = "";
+        phonenumber ="";
+    }
+    
+    
+//constructor whith two paramerer
+    public CustomerInformation(String name, String phonenumber) {
+        this.name = name;
+        this.phonenumber = phonenumber;
+
+    }
+    
+    
+//setters and getters method
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String nem) {
+
+        name = nem;
+
+    }
+
+    public String getPhonenumber() {
+        return this.phonenumber;
+    }
+
+    public void setPhonenumber(String pho) {
+        phonenumber = pho;
+    }
+    
+    
+//method toString  to return all the data in an object as a string
+    @Override
+    public String toString() {
+        return "Customer" + "Name: " + name + "phonenumber: " + phonenumber;
+    }
+
+   
+//method equals  to check default method compares two objects for equality and returns true if they’re equal and false otherwise
+    @Override
+    public boolean equals(Object obj) {
+             CustomerInformation other = (CustomerInformation) obj;
+      
+        return this.phonenumber == other.phonenumber&&this.name.equals(other.name);
+    }
+
+}
+
+

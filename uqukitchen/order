@@ -1,0 +1,223 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package uqu.kitchen;
+import java.util.Scanner;
+/**
+ *
+ * @author HOME
+ */
+public class Order {
+    private int orderID;
+    private int customerID;
+    private double totalPrice;
+    private Menu menu;
+    private Healthy healthy;
+    private String bill;
+  private double totalPriceAfterDiscount;
+    // ArrayList<Menu> menuOrders = new ArrayList<>();  
+    public Scanner input = new Scanner(System.in);
+
+    public void setOrder(int orderID, int customerID) {
+        this.orderID = orderID;
+        this.customerID = customerID;
+    }
+
+    public void generateBill() {
+        System.out.println("Customer ID: " + this.customerID);
+        System.out.println("Order  ID: " + this.orderID);
+        System.out.println(bill);
+
+        System.out.println("---------------------------------------------");
+        System.out.println("Total price: " + totalPrice);
+    }
+
+    public Order() {
+        bill = "";
+        System.out.println("Which menu do you want 1 normal  2 healthy ?");
+        int choose = input.nextInt();
+
+        if (choose == 1) {
+
+            menu = new Menu();
+            do {
+                System.out.println("  select and choose from the menu ");
+                System.out.println("1.Foods ");
+                System.out.println(" 2.Drinks");
+                System.out.println(" 3.Sweets");
+                System.out.println(" 4.Salad");
+                System.out.println("5.Exit");
+                choose = input.nextInt();
+input.nextLine();
+
+                String userOrder = "";
+                double price = 0;
+
+                switch (choose) {
+                    case 1:
+
+                        menu.printFood();
+                        userOrder = input.nextLine();
+                        price = menu.foodPrice(userOrder);
+                        totalPrice += price;
+                        bill += userOrder + "           " + price + "\n";
+
+                       
+                        break;
+
+                        
+                        
+                    case 2:
+                       menu.printDrinks();
+                        userOrder = input.nextLine();
+                        price = menu.DirnksPrice(userOrder);
+                        totalPrice += price;
+                        bill += userOrder + "        " + price+ "\n";
+
+                break;
+
+                
+              case 3:
+                  
+                        menu.printSweets();
+                        userOrder = input.nextLine();
+                        price = menu.SweetsPrice(userOrder);
+                        totalPrice += price;
+                        bill += userOrder + "        " + price+ "\n";
+                        break;
+
+                        
+                        
+                    case 4:
+                       menu.printSalad();
+                        userOrder = input.nextLine();
+                        price = menu.saladsPrice(userOrder);
+                        totalPrice += price;
+                        bill += userOrder + "        " + price+ "\n"; 
+                        
+                        
+                        break;
+
+                        
+                        
+                        
+                        
+                    case 5:
+                        System.out.println("enjoy eating bye");
+                        break;
+
+                    default:
+                        System.out.println("Invalid option");
+                        break;
+
+                }
+
+            
+        
+        }
+        while (choose != 5);
+
+    }
+
+    
+    
+    else {
+            healthy =new Healthy();
+            // بعد ما نخلص ننسخها و نحط بدالها هيلثي 
+             do {
+                System.out.println("  select and choose from the menu ");
+                System.out.println("1.Foods ");
+                System.out.println(" 2.Drinks");
+                System.out.println(" 3.Sweets");
+                System.out.println(" 4.Salad");
+                System.out.println("5.Exit");
+                choose = input.nextInt();
+input.nextLine();
+                String userOrder = "";
+                
+                double price = 0;
+
+                switch (choose) {
+                    case 1:
+
+                        healthy.printFood();
+                        userOrder = input.nextLine();
+                        price = healthy.foodPrice(userOrder);
+                        totalPrice += price;
+                        bill += userOrder + "           " + price + "\n";
+
+                       
+                        break;
+
+                        
+                        
+                    case 2:
+                       healthy.printDrinks();
+                        userOrder = input.nextLine();
+                        price = healthy.DirnksPrice(userOrder);
+                        totalPrice += price;
+                        bill += userOrder + "        " + price+ "\n";
+
+                break;
+
+                
+              case 3:
+                  
+                        healthy.printSweets();
+                        userOrder = input.nextLine();
+                        price = healthy.SweetsPrice(userOrder);
+                        totalPrice += price;
+                        bill += userOrder + "        " + price+ "\n";
+                        break;
+
+                        
+                        
+                    case 4:
+                       healthy.printSalad();
+                        userOrder = input.nextLine();
+                        price = healthy.saladsPrice(userOrder);
+                        totalPrice += price;
+                        bill += userOrder + "        " + price+ "\n"; 
+                        
+                        
+                        break;
+
+                        
+                        
+                        
+                        
+                    case 5:
+                        System.out.println("enjoy eating bye");
+                        break;
+
+                    default:
+                        System.out.println("Invalid option");
+                        break;
+
+                }
+
+            
+        
+        }
+        while (choose != 5);
+
+    }
+
+    
+            
+            
+            
+            
+            
+            
+
+       
+
+       
+    totalPriceAfterDiscount  = Discount.calculateTotalPriceAfterDiscount(totalPrice,15);
+    bill+="Total Price " + totalPrice+"\n" ;
+  bill+="Total Price After Discount " + totalPriceAfterDiscount ;
+}
+
+}

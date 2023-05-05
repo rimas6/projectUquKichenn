@@ -1,0 +1,406 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package uqu.kitchen;
+
+/**
+ *
+ * @author HOME
+ */
+
+
+public class Healthy extends Menu {
+//متغيرات جديده غير موروثه
+
+    private double FoodCal[];
+    private double[] Drinkscal;
+    private double saladCal[];
+    private double SweetCal[];
+
+    public Healthy() {
+
+        super.setFoods(new String[4]);
+        FoodCal = new double[4];
+        super.setFoodPrice(new double[4]);
+
+        super.setDrinks(new String[4]);
+
+        Drinkscal = new double[4];
+        super.setDrinksPrice(new double[4]);
+
+        super.setSalad(new String[5]);
+        super.setSaladPrice(new double[5]);
+
+        saladCal = new double[5];
+
+        SweetCal = new double[3];
+        WriteData();
+    }
+
+    public Healthy(double[] FoodCal, double[] Drinkscal, double[] saladCal, double[] SweetCal) {
+        this.FoodCal = FoodCal;
+        this.Drinkscal = Drinkscal;
+        this.saladCal = saladCal;
+        this.SweetCal = SweetCal;
+    }
+
+    public double[] getFoodCal() {
+        return FoodCal;
+    }
+
+    public void setFoodCal(double[] FoodCal) {
+        this.FoodCal = FoodCal;
+    }
+
+    public double[] getDrinkscal() {
+        return Drinkscal;
+    }
+
+    public void setDrinkscal(double[] Drinkscal) {
+        this.Drinkscal = Drinkscal;
+    }
+
+    public double[] getSaladCal() {
+        return saladCal;
+    }
+
+    public void setSaladCal(double[] saladCal) {
+        this.saladCal = saladCal;
+    }
+
+    public double[] getSweetCal() {
+        return SweetCal;
+    }
+
+    public void setSweetCal(double[] SweetCal) {
+        this.SweetCal = SweetCal;
+    }
+
+    private void WriteData() {
+// متغيرات عشان نمرر بالسوبر   
+        String F[] = new String[4];
+        double FP[] = new double[4];
+        String D[] = new String[4];
+        double DP[] = new double[4];
+        String s[] = new String[5];
+        double sp[] = new double[5];
+        String ss[] = new String[3];
+        double ssp[] = new double[3];
+
+        F[0] = "Chicken Fajita";//1
+        F[1] = "Oven Breaded Chicken";//2
+        F[2] = "Turkey Breast";//3
+        F[3] = "Tuna";//4    
+        super.setFoods(F);
+
+        FP[0] = 33.0;
+        FP[1] = 43.0;
+        FP[2] = 50.0;
+        FP[3] = 12.99;
+        super.setFoodPrice(FP);
+
+        FoodCal[0] = 390.0;
+        FoodCal[1] = 434.0;
+        FoodCal[2] = 303.0;
+        FoodCal[3] = 500.0;
+
+        D[0] = "oringe juoce";//1 
+        D[1] = "SEASON JUICE";//2
+        D[2] = "GREEN APPLE JUICE";//3
+        D[3] = "AVOCADO JUICE";//4
+        super.setDrinks(D);
+
+        DP[0] = 13.2;
+        DP[1] = 12.0;
+        DP[2] = 7.0;
+        DP[3] = 15.0;
+        super.setDrinksPrice(DP);
+
+        Drinkscal[0] = 390.0;
+        Drinkscal[1] = 434.0;
+        Drinkscal[2] = 303.0;
+        Drinkscal[3] = 500.0;
+
+        s[0] = "Veggie Patty";//1 
+        s[1] = "Italian B.M.T.™️";//2
+        s[2] = "Chicken Fajita";//3
+        s[3] = "Avocado salad";//4
+        s[4] = "Halloumi Cheese";//5
+        super.setSalad(s);
+
+        sp[0] = 41.2;
+        sp[1] = 43.0;
+        sp[2] = 50.0;
+        sp[3] = 23.0;
+        sp[3] = 33.0;
+        super.setSaladPrice(sp);
+
+        saladCal[0] = 302.0;
+        saladCal[1] = 220.0;
+        saladCal[2] = 300.0;
+        saladCal[3] = 86.0;
+
+        ssp[0] = 41.2;
+        ssp[1] = 43.0;
+        ssp[2] = 50.0;
+
+        super.setSweetsPrice(ssp);
+
+        ss[0] = "browne";//1 
+        ss[1] = "ice cream️";//2
+        ss[2] = "chocolatecake  ";//3
+        super.setSweets(ss);
+
+        SweetCal[0] = 302.0;
+        SweetCal[1] = 220.0;
+        SweetCal[2] = 300.0;
+
+    }
+
+    public void printfood() {
+        System.out.println(" We have it in the Food section");
+        String a[] = super.getFoods();
+        double b[] = super.getFoodPrice();
+        for (int f = 0; f < a.length; f++) {
+
+            System.out.println(a[f] + "\t" + b[f] + "SR" + "\t" + FoodCal[f] + "Cal");
+        }
+    }
+
+    @Override
+    public void printDrinks() {
+        System.out.println(" We have it in the Drinks section");
+        String a[] = super.getDrinks();
+        double b[] = super.getDrinksPrice();
+        for (int d = 0; d < a.length; d++) {
+
+            System.out.println(a[d] + "\t" + b[d] + "SR" + "\t" + Drinkscal[d] + "Cal");
+
+        }
+    }
+
+    @Override
+    public void printSalad() {
+        System.out.println(" We have it in the salad section");
+        String a[] = super.getSalad();
+        double b[] = super.getSaladPrice();
+        for (int s = 0; s < a.length; s++) {
+
+            System.out.println(a[s] + "\t" + b[s] + "SR" + "\t" + saladCal[s] + "Cal");
+        }
+    }
+
+    public void printSweets() {
+        System.out.println(" We have it in the sweets section");
+        String a[] = super.getSweets();
+        double b[] = super.getSweetsPrice();
+        for (int s = 0; s < a.length; s++) {
+
+            System.out.println(a[s] + "\t" + b[s] + "SR" + "\t" + saladCal[s] + "Cal");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* public class Healthy extends Menu {   
+//متغيرات جديده غير موروثه
+        private double FoodCal[];
+        private double[] Drinkscal;
+        private double saladCal[];
+        private double SweetCal[];
+
+        public Healthy(){
+
+            super.setFoods(new String[4]);
+            FoodCal = new double[4];
+            super.setFoodPrice(new double[4]);
+
+            super.setDrinks(new String[4]);
+
+            Drinkscal = new double[4];
+            super.setDrinksPrice(new double[4]);
+
+            super.setSalad(new String[5]);
+            super.setSaladPrice(new double[5]);
+
+            saladCal = new double[5];
+
+            SweetCal = new double[3];
+            WriteData();
+        }
+
+    public Healthy(double[] FoodCal, double[] Drinkscal, double[] saladCal, double[] SweetCal) {
+        this.FoodCal = FoodCal;
+        this.Drinkscal = Drinkscal;
+        this.saladCal = saladCal;
+        this.SweetCal = SweetCal;
+    }
+
+    public double[] getFoodCal() {
+        return FoodCal;
+    }
+
+    public void setFoodCal(double[] FoodCal) {
+        this.FoodCal = FoodCal;
+    }
+
+    public double[] getDrinkscal() {
+        return Drinkscal;
+    }
+
+    public void setDrinkscal(double[] Drinkscal) {
+        this.Drinkscal = Drinkscal;
+    }
+
+    public double[] getSaladCal() {
+        return saladCal;
+    }
+
+    public void setSaladCal(double[] saladCal) {
+        this.saladCal = saladCal;
+    }
+
+    public double[] getSweetCal() {
+        return SweetCal;
+    }
+
+    public void setSweetCal(double[] SweetCal) {
+        this.SweetCal = SweetCal;
+    }
+
+       
+
+        private void WriteData() {
+// متغيرات عشان نمرر بالسوبر   
+            String F[] = new String[4];
+            double FP[] = new double[4];
+            String D[] = new String[4];
+            double DP[] = new double[4];
+            String s[] = new String[5];
+            double sp[] = new double[5];
+            String ss[] = new String[3];
+            double ssp[] = new double[3];
+
+            F[0] = "Chicken Fajita";//1
+            F[1] = "Oven Breaded Chicken";//2
+            F[2] = "Turkey Breast";//3
+            F[3] = "Tuna";//4    
+            super.setFoods(F);
+
+            FP[0] = 33.0;
+            FP[1] = 43.0;
+            FP[2] = 50.0;
+            FP[3] = 12.99;
+            super.setFoodPrice(FP);
+
+            FoodCal[0] = 390.0;
+            FoodCal[1] = 434.0;
+            FoodCal[2] = 303.0;
+            FoodCal[3] = 500.0;
+
+            D[0] = "oringe juoce";//1 
+            D[1] = "SEASON JUICE";//2
+            D[2] = "GREEN APPLE JUICE";//3
+            D[3] = "AVOCADO JUICE";//4
+            super.setDrinks(D);
+
+            DP[0] = 13.2;
+            DP[1] = 12.0;
+            DP[2] = 7.0;
+            DP[3] = 15.0;
+            super.setDrinksPrice(DP);
+
+            Drinkscal[0] = 390.0;
+            Drinkscal[1] = 434.0;
+            Drinkscal[2] = 303.0;
+            Drinkscal[3] = 500.0;
+
+            s[0] = "Veggie Patty";//1 
+            s[1] = "Italian B.M.T.™️";//2
+            s[2] = "Chicken Fajita";//3
+            s[3] = "Avocado salad";//4
+            s[4] = "Halloumi Cheese";//5
+            super.setSalad(s);
+
+            sp[0] = 41.2;
+            sp[1] = 43.0;
+            sp[2] = 50.0;
+            sp[3] = 23.0;
+            sp[3] = 33.0;
+            super.setSaladPrice(sp);
+
+            saladCal[0] = 302.0;
+            saladCal[1] = 220.0;
+            saladCal[2] = 300.0;
+            saladCal[3] = 86.0;
+
+            ssp[0] = 41.2;
+            ssp[1] = 43.0;
+            ssp[2] = 50.0;
+            
+            super.setSweetsPrice(ssp);
+
+            ss[0] = "browne";//1 
+            ss[1] = "ice cream️";//2
+            ss[2] = "chocolatecake  ";//3
+            super.setSweets(ss);
+
+            SweetCal[0] = 302.0;
+            SweetCal[1] = 220.0;
+            SweetCal[2] = 300.0;
+
+        }
+
+        public void printfood() {
+            System.out.println(" We have it in the Food section");
+            String a[] = super.getFoods();
+            double b[] = super.getFoodPrice();
+            for (int f = 0; f < a.length; f++) {
+
+                System.out.println(a[f] + "\t" + b[f] + "\t" + FoodCal[f]);
+            }
+        }
+        @Override
+        public void printDrinks() {
+            System.out.println(" We have it in the Drinks section");
+            String a[] = super.getDrinks();
+            double b[] = super.getDrinksPrice();
+            for (int d = 0; d < a.length; d++) {
+
+                System.out.println(a[d] + "\t" + b[d] + "\t" + Drinkscal[d]);
+
+            }
+        }
+
+        @Override
+        public void printSalad() {
+            System.out.println(" We have it in the salad section");
+            String a[] = super.getSalad();
+            double b[] = super.getSaladPrice();
+            for (int s = 0; s < a.length; s++) {
+
+                System.out.println(a[s] + "\t" + b[s] + "\t" + saladCal[s]);
+            }
+        }**/
+
+ 
+
+    
+

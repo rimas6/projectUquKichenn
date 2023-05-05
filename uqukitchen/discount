@@ -1,0 +1,16 @@
+package uqu.kitchen;
+
+public class Discount {
+   //Helper method to calculate the discount percentage, that we are going to use only inside the class
+    private static double calculateDiscount(double totalprice, double discountPercentage) {
+        return totalprice * (discountPercentage / 100);
+    }
+   //A public method to calculate the price after the discount
+    public static double calculateTotalPriceAfterDiscount(double totalprice, double discountPercentage) {
+        return totalprice - discountPercentage;
+    }
+   //an overloading method
+    public static double calculateTotalPriceAfterDiscount(double totalprice) {
+        return totalprice - calculateDiscount(totalprice, 10);
+    }
+}

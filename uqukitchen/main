@@ -1,0 +1,57 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package uqu.kitchen;
+
+/**
+ *
+ * @author HOME
+ */
+
+    /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author hadeel
+ */
+public class UQUKitchen {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+ ArrayList<CustomerInformation> customer = new ArrayList<CustomerInformation>();
+        Scanner d = new Scanner(System.in);
+        System.out.println("******Welcome to our restaurant*******");
+        System.out.print("enter your name :");
+        String name = d.nextLine();
+        String phonenumber = " ";
+        do {System.out.print("enter your phonenumber:");
+         phonenumber = d.nextLine();
+        if (phonenumber.length() == 9) {
+            System.out.println("Valid phone number!"); // or do something else if phone number is valid
+        } else {
+            System.out.println("Invalid phone number!"); // or do something else if phone number is invalid
+        }
+
+        } while (phonenumber.length() != 9);
+
+       Order order =new Order();
+       order.generateBill();
+        
+        CustomerInformation na = new CustomerInformation(name, phonenumber);
+        CustomerInformation ph = new CustomerInformation("hadeel", "546281618");
+        customer.add(na);
+        customer.add(ph);
+    }
+
+}
+

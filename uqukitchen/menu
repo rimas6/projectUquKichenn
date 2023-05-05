@@ -1,0 +1,249 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package uqu.kitchen;
+
+/**
+ *
+ * @author HOME
+ */
+public class Menu {
+
+    private String[] Foods;
+    private double[] FoodPrice;
+    private String[] Drinks;
+    private double[] DrinksPrice;
+    private String[] Sweets;
+    private double[] SweetsPrice;
+    private String[] salad;
+    private double[] saladPrice;
+
+    public Menu() {
+        Foods = new String[5];
+        FoodPrice = new double[5];
+        Drinks = new String[4];
+        DrinksPrice = new double[4];
+        Sweets = new String[3];
+        SweetsPrice = new double[3];
+        salad = new String[4];
+        saladPrice = new double[4];
+        WriteData();
+
+    }
+
+    public Menu(String[] Foods, double[] FoodPrice, String[] Drinks, double[] DrinksPrice, String[] Sweets, double[] SweetsPrice, String[] salad, double[] saladPrice) {
+        this.Foods = Foods;
+        this.FoodPrice = FoodPrice;
+        this.Drinks = Drinks;
+        this.DrinksPrice = DrinksPrice;
+        this.Sweets = Sweets;
+        this.SweetsPrice = SweetsPrice;
+        this.salad = salad;
+        this.saladPrice = saladPrice;
+    }
+
+    public String[] getFoods() {
+        return Foods;
+    }
+
+    public void setFoods(String[] Foods) {
+        this.Foods = Foods;
+    }
+
+    public double[] getFoodPrice() {
+        return FoodPrice;
+    }
+
+    public void setFoodPrice(double[] FoodPrice) {
+        this.FoodPrice = FoodPrice;
+    }
+
+    public String[] getDrinks() {
+        return Drinks;
+    }
+
+    public void setDrinks(String[] Drinks) {
+        this.Drinks = Drinks;
+    }
+
+    public double[] getDrinksPrice() {
+        return DrinksPrice;
+    }
+
+    public void setDrinksPrice(double[] DrinksPrice) {
+        this.DrinksPrice = DrinksPrice;
+    }
+
+    public String[] getSweets() {
+        return Sweets;
+    }
+
+    public void setSweets(String[] Sweets) {
+        this.Sweets = Sweets;
+    }
+
+    public double[] getSweetsPrice() {
+        return SweetsPrice;
+    }
+
+    public void setSweetsPrice(double[] SweetsPrice) {
+        this.SweetsPrice = SweetsPrice;
+    }
+
+    public String[] getSalad() {
+        return salad;
+    }
+
+    public void setSalad(String[] salad) {
+        this.salad = salad;
+    }
+
+    public double[] getSaladPrice() {
+        return saladPrice;
+    }
+
+    public void setSaladPrice(double[] saladPrice) {
+        this.saladPrice = saladPrice;
+    }
+
+    private void WriteData() {
+        //food and food pris
+        Foods[0] = "pasta";//1
+        Foods[1] = "burger";//2
+        Foods[2] = "pizz";//3
+        Foods[3] = "chicken ";//4
+        Foods[4] = "Quesadilla";//5
+
+        FoodPrice[0] = 33.95;
+        FoodPrice[1] = 24.0;
+        FoodPrice[2] = 67.85;
+        FoodPrice[3] = 12.99;
+        FoodPrice[4] = 37.5;
+
+        //space///
+        /////Drinks and drinks pris
+        Drinks[0] = "pepsi";//1 
+        Drinks[1] = "seven up";//2
+        Drinks[2] = "water";//3
+        Drinks[3] = "mojito";//4
+
+        DrinksPrice[0] = 13.2;
+        DrinksPrice[1] = 12.0;
+        DrinksPrice[2] = 7.0;
+        DrinksPrice[3] = 15.0;
+
+        //space///                        
+        // Sweets and  Sweets pris
+        Sweets[0] = "browne";//1 
+        Sweets[1] = "ice cream";//2
+        Sweets[2] = "chocolatecake  ";//3
+
+        SweetsPrice[0] = 30.0;
+        SweetsPrice[1] = 10.0;
+        SweetsPrice[2] = 26.0;
+
+        //space///   
+        //Appetizers and Appetizerspris                      
+        salad[0] = "Caesar salad";//1 
+        salad[1] = "Fattoush";//2
+        salad[2] = "Avocado salad";//3
+        salad[3] = "Halloumi salad";//4
+
+        saladPrice[0] = 25.0;
+        saladPrice[1] = 20.0;
+        saladPrice[2] = 30.95;
+        saladPrice[3] = 33.5;
+
+    }
+
+    public void printFood() {
+        System.out.println(" We have it in the Food section");
+        for (int f = 0; f < Foods.length; f++) {
+
+            System.out.println(Foods[f] + " \t \t " + FoodPrice[f] + "sr");
+        }
+
+    }
+
+    public void printDrinks() {
+        System.out.println(" We have it in the Drinks section");
+        for (int d = 0; d < Drinks.length; d++) {
+
+            System.out.println(Drinks[d] + " \t \t " + DrinksPrice[d] + "sr");
+
+        }
+    }
+
+    public void printSweets() {
+        System.out.println(" We have it in the Sweets section");
+        for (int s = 0; s < Sweets.length; s++) {
+            System.out.println(Sweets[s] + " \t \t " + SweetsPrice[s] + "sr");
+        }
+    }
+
+    public void printSalad() {
+
+        System.out.println(" We have it in the Salad section");
+        for (int a = 0; a < salad.length; a++) {
+
+            System.out.println(salad[a] + " \t \t " + saladPrice[a] + "sr");
+        }
+    }
+
+    // نمررلها الاسم و تعطينا السعر 
+    public double foodPrice(String food) {
+        int index = 0;
+        for (int f = 0; f < Foods.length; f++) {
+
+            if (Foods[f].equalsIgnoreCase(food)) {
+                index = f;
+            }
+        }
+
+        return FoodPrice[index];
+    }
+
+    public double DirnksPrice(String drink) {
+
+        int index = 0;
+
+        for (int d = 0; d < Drinks.length; d++) {
+
+            if (Drinks[d].equalsIgnoreCase(drink)) {
+                index = d;
+            }
+        }
+
+        return DrinksPrice[index];
+
+    }
+
+    public double SweetsPrice(String swet) {
+
+        int index = 0;
+
+        for (int w = 0; w < Sweets.length; w++) {
+
+            if (Sweets[w].equalsIgnoreCase(swet)) {
+                index = w;
+            }
+        }
+        return SweetsPrice[index];
+    }
+
+    ////////////////////////////////////////////////////////////////////
+    public double saladsPrice(String salads) {
+
+        int index = 0;
+
+        for (int s = 0; s < salad.length; s++) {
+
+            if (salad[s].equalsIgnoreCase(salads)) {
+                index = s;
+            }
+        }
+        return saladPrice[index];
+    }
+
+}
