@@ -2,21 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package uqu.kitchen;
 import java.util.Scanner;
-/**
- *
- * @author HOME
- */
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class Order {
+
     private int orderID;
     private int customerID;
     private double totalPrice;
     private Menu menu;
     private Healthy healthy;
     private String bill;
-  private double totalPriceAfterDiscount;
-    // ArrayList<Menu> menuOrders = new ArrayList<>();  
+    private double totalPriceAfterDiscount;
+
     public Scanner input = new Scanner(System.in);
 
     public void setOrder(int orderID, int customerID) {
@@ -43,13 +42,13 @@ public class Order {
             menu = new Menu();
             do {
                 System.out.println("  select and choose from the menu ");
-                System.out.println("1.Foods ");
-                System.out.println(" 2.Drinks");
-                System.out.println(" 3.Sweets");
+                System.out.println("1.Food ");
+                System.out.println(" 2.Drink");
+                System.out.println(" 3.Sweet");
                 System.out.println(" 4.Salad");
                 System.out.println("5.Exit");
                 choose = input.nextInt();
-input.nextLine();
+                input.nextLine();
 
                 String userOrder = "";
                 double price = 0;
@@ -57,52 +56,41 @@ input.nextLine();
                 switch (choose) {
                     case 1:
 
-                        menu.printFood();
+                        read("MENU.txt", "Food");
                         userOrder = input.nextLine();
                         price = menu.foodPrice(userOrder);
                         totalPrice += price;
                         bill += userOrder + "           " + price + "\n";
 
-                       
                         break;
 
-                        
-                        
                     case 2:
-                       menu.printDrinks();
+                        read("MENU.txt", "Drink");
                         userOrder = input.nextLine();
                         price = menu.DirnksPrice(userOrder);
                         totalPrice += price;
-                        bill += userOrder + "        " + price+ "\n";
+                        bill += userOrder + "        " + price + "\n";
 
-                break;
+                        break;
 
-                
-              case 3:
-                  
-                        menu.printSweets();
+                    case 3:
+
+                        read("MENU.txt", "Sweet");
                         userOrder = input.nextLine();
                         price = menu.SweetsPrice(userOrder);
                         totalPrice += price;
-                        bill += userOrder + "        " + price+ "\n";
+                        bill += userOrder + "        " + price + "\n";
                         break;
 
-                        
-                        
                     case 4:
-                       menu.printSalad();
+                        read("MENU.txt", "Salad");
                         userOrder = input.nextLine();
                         price = menu.saladsPrice(userOrder);
                         totalPrice += price;
-                        bill += userOrder + "        " + price+ "\n"; 
-                        
-                        
+                        bill += userOrder + "        " + price + "\n";
+
                         break;
 
-                        
-                        
-                        
-                        
                     case 5:
                         System.out.println("enjoy eating bye");
                         break;
@@ -113,19 +101,12 @@ input.nextLine();
 
                 }
 
-            
-        
-        }
-        while (choose != 5);
+            } while (choose != 5);
 
-    }
+        } else {
+            healthy = new Healthy();
 
-    
-    
-    else {
-            healthy =new Healthy();
-            // بعد ما نخلص ننسخها و نحط بدالها هيلثي 
-             do {
+            do {
                 System.out.println("  select and choose from the menu ");
                 System.out.println("1.Foods ");
                 System.out.println(" 2.Drinks");
@@ -133,60 +114,49 @@ input.nextLine();
                 System.out.println(" 4.Salad");
                 System.out.println("5.Exit");
                 choose = input.nextInt();
-input.nextLine();
+                input.nextLine();
                 String userOrder = "";
-                
+
                 double price = 0;
 
                 switch (choose) {
                     case 1:
 
-                        healthy.printFood();
+                        read("healthy.txt", "Food");
                         userOrder = input.nextLine();
                         price = healthy.foodPrice(userOrder);
                         totalPrice += price;
                         bill += userOrder + "           " + price + "\n";
 
-                       
                         break;
 
-                        
-                        
                     case 2:
-                       healthy.printDrinks();
+                        read("healthy.txt", "Drink");
                         userOrder = input.nextLine();
                         price = healthy.DirnksPrice(userOrder);
                         totalPrice += price;
-                        bill += userOrder + "        " + price+ "\n";
+                        bill += userOrder + "        " + price + "\n";
 
-                break;
+                        break;
 
-                
-              case 3:
-                  
-                        healthy.printSweets();
+                    case 3:
+
+                        read("healthy.txt", "Sweet");
                         userOrder = input.nextLine();
                         price = healthy.SweetsPrice(userOrder);
                         totalPrice += price;
-                        bill += userOrder + "        " + price+ "\n";
+                        bill += userOrder + "        " + price + "\n";
                         break;
 
-                        
-                        
                     case 4:
-                       healthy.printSalad();
+                        read("healthy.txt", "salad");
                         userOrder = input.nextLine();
                         price = healthy.saladsPrice(userOrder);
                         totalPrice += price;
-                        bill += userOrder + "        " + price+ "\n"; 
-                        
-                        
+                        bill += userOrder + "        " + price + "\n";
+
                         break;
 
-                        
-                        
-                        
-                        
                     case 5:
                         System.out.println("enjoy eating bye");
                         break;
@@ -197,27 +167,63 @@ input.nextLine();
 
                 }
 
-            
-        
+            } while (choose != 5);
+
         }
-        while (choose != 5);
+
+        totalPriceAfterDiscount = Discount.calculateTotalPriceAfterDiscount(totalPrice, 15);
+        bill += "Total Price " + totalPrice + "\n";
+        bill += "Total Price After Discount " + totalPriceAfterDiscount;
 
     }
 
-    
-            
-            
-            
-            
-            
-            
+    public void read(String file, String section) {
 
-       
+        System.out.print("Enter the file");
 
-       
-    totalPriceAfterDiscount  = Discount.calculateTotalPriceAfterDiscount(totalPrice,15);
-    bill+="Total Price " + totalPrice+"\n" ;
-  bill+="Total Price After Discount " + totalPriceAfterDiscount ;
-}
+        String fileName = file;
+        Scanner inputStream = null;
+        System.out.println("The file " + fileName + "\n" + "conntains the folloing lines:\n");
+        try {
+            inputStream = new Scanner(new File(fileName));
+
+        } catch (FileNotFoundException e) {
+            System.out.println("The file " + fileName + " was not found.");
+            System.exit(0);
+        }
+
+        while (inputStream.hasNextLine()) {
+
+            String line = inputStream.nextLine();
+
+            String[] ary = line.split(",");
+            if (line.equalsIgnoreCase(section)) {
+                while (inputStream.hasNextLine()) {
+                    line = inputStream.nextLine();
+                    ary = line.split(",");
+
+                    if (ary.length != 1) {
+                        double price = Double.parseDouble(ary[1]);
+
+                        if (file.equalsIgnoreCase("MENU.txt")) {
+                            System.out.println(ary[0] + " " + ary[1]);
+
+                        } else {
+                            System.out.println(ary[0] + " " + ary[1] + " " + ary[2]);
+                        }
+                    } else {
+
+                        break;
+
+                    }
+                }
+
+                break;
+            }
+
+        }
+        inputStream.close();
+
+    }
 
 }
