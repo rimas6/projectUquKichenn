@@ -1,31 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package uqu.kitchen;
-
-/**
- *
- * @author HOME
- */
-
-    /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author hadeel
- */
 public class UQUKitchen {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
     
  ArrayList<CustomerInformation> customer = new ArrayList<CustomerInformation>();
@@ -44,7 +24,7 @@ public class UQUKitchen {
 
         } while (phonenumber.length() != 9);
 
-       Order order =new Order();
+       Order order =new Order(1,customerName);
        order.generateBill();
         
         CustomerInformation na = new CustomerInformation(name, phonenumber);
@@ -54,4 +34,3 @@ public class UQUKitchen {
     }
 
 }
-
